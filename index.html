@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hockey Arena Timer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="scoreboard">
+        <!-- Home Team -->
+        <div class="team-section">
+            <h2 id="home-name">HOME</h2>
+            <div class="score" id="home-score">0</div>
+            <div class="team-controls">
+                <button onclick="adjustScore('home', 1)">+</button>
+                <button onclick="adjustScore('home', -1)">-</button>
+            </div>
+            <button class="goal-btn home-goal" onclick="triggerGoal('home')">Goal & Horn</button>
+        </div>
+
+        <!-- Center Timer & Period -->
+        <div class="center-section">
+            <div class="period-display">PERIOD <span id="period">1</span></div>
+            <div class="timer" id="timer-display">10:00</div>
+            
+            <!-- Timer Length Selector -->
+            <div class="length-selector">
+                <label for="period-length">Length:</label>
+                <select id="period-length" onchange="changeTimerLength()">
+                    <option value="600">10:00 (Pitkä)</option>
+                    <option value="300">5:00 (Sopiva)</option>
+                    <option value="180">03:00 (Jatkoaika)</option>
+                </select>
+            </div>
+
+            <div class="timer-controls">
+                <button id="start-stop-btn" onclick="toggleTimer()">START</button>
+                <button onclick="resetTimer()">RESET</button>
+                <button onclick="changePeriod()">NEXT PERIOD</button>
+            </div>
+        </div>
+
+        <!-- Away Team -->
+        <div class="team-section">
+            <h2 id="away-name">AWAY</h2>
+            <div class="score" id="away-score">0</div>
+            <div class="team-controls">
+                <button onclick="adjustScore('away', 1)">+</button>
+                <button onclick="adjustScore('away', -1)">-</button>
+            </div>
+            <button class="goal-btn away-goal" onclick="triggerGoal('away')">Goal & Horn</button>
+        </div>
+    </div>
+
+    <!-- 3 Separate Audio Elements -->
+    <audio id="round-horn-audio" src="round-horn.mp3"></audio>
+    <audio id="home-goal-audio" src="home-goal.mp3"></audio>
+    <audio id="away-goal-audio" src="away-goal.mp3"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

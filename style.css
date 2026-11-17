@@ -1,0 +1,141 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 10px;
+}
+
+.scoreboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #1e1e1e;
+    border: 3px solid #333;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    gap: 20px;
+    width: 100%;
+    max-width: 850px;
+}
+
+.team-section, .center-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Order the timer at the top on small portrait phone screens */
+@media (max-width: 650px) {
+    .center-section {
+        order: -1;
+        width: 100%;
+        border-bottom: 2px solid #333;
+        padding-bottom: 15px;
+    }
+    .team-section {
+        width: 45%;
+    }
+}
+
+h2 {
+    margin: 0 0 8px 0;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.score {
+    font-size: 56px;
+    font-weight: bold;
+    background: #000;
+    color: #ff3b3b;
+    padding: 8px 20px;
+    border-radius: 8px;
+    border: 2px solid #444;
+    margin-bottom: 10px;
+}
+
+.timer {
+    font-size: 54px;
+    font-weight: bold;
+    background: #000;
+    color: #00ffcc;
+    padding: 8px 20px;
+    border-radius: 8px;
+    border: 2px solid #444;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+}
+
+.length-selector {
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+select {
+    background-color: #333;
+    color: #ffffff;
+    border: 1px solid #555;
+    padding: 6px 8px;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+button:active {
+    background-color: #666;
+}
+
+.team-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.team-controls button {
+    width: 42px;
+    font-size: 20px;
+}
+
+.goal-btn {
+    background-color: #ff9900;
+    color: black;
+    width: 100%;
+    padding: 12px 8px;
+}
+
+.timer-controls {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#start-stop-btn {
+    background-color: #28a745;
+}
+
+#start-stop-btn.running {
+    background-color: #dc3545;
+}
